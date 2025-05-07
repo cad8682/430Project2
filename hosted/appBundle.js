@@ -27301,7 +27301,10 @@ const EeveeForm = props => {
   return /*#__PURE__*/React.createElement("form", {
     id: "eeveeForm",
     name: "eeveeForm"
-    /*onSubmit={(e) => handleEevee(e, OptimizationStages.triggerReload)}*/,
+    //onSubmit={(e) => handleEevee(e, OptimizationStages.triggerReload)}
+    //When bug fixing I was told to switch to this by ChatGPT, my code works, I'm hesitant to change back
+    //even if I don't think this caused any issues
+    ,
     onSubmit: e => handleEevee(e, props.triggerReload),
     action: "/maker",
     method: "POST",
@@ -27338,7 +27341,7 @@ const EeveeList = props => {
     loadEeveesFromServer();
   }, [props.reloadEevees]);
 
-  //
+  //ChatGPT helped make evolveEevee
   const evolveEevee = async id => {
     try {
       const response = await fetch(`/evolveEevee/${id}`, {
@@ -27352,8 +27355,6 @@ const EeveeList = props => {
         return;
       }
       const updatedEevee = await response.json();
-
-      // Update local state with the evolved Eevee
       setEevees(prevEevees => prevEevees.map(eevee => eevee._id === updatedEevee._id ? updatedEevee : eevee));
     } catch (err) {
       console.error('Error evolving Eevee:', err);

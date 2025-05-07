@@ -23,7 +23,9 @@ const EeveeForm = (props) => {
     return (
         <form id="eeveeForm"
             name="eeveeForm"
-            /*onSubmit={(e) => handleEevee(e, OptimizationStages.triggerReload)}*/
+            //onSubmit={(e) => handleEevee(e, OptimizationStages.triggerReload)}
+            //When bug fixing I was told to switch to this by ChatGPT, my code works, I'm hesitant to change back
+                //even if I don't think this caused any issues
             onSubmit={(e) => handleEevee(e, props.triggerReload)}
             action="/maker"
             method="POST"
@@ -51,7 +53,7 @@ const EeveeList = (props) => {
         loadEeveesFromServer();
     }, [props.reloadEevees]);
 
-    //
+    //ChatGPT helped make evolveEevee
     const evolveEevee = async (id) => {
         try {
             const response = await fetch(`/evolveEevee/${id}`, {
@@ -68,7 +70,6 @@ const EeveeList = (props) => {
 
             const updatedEevee = await response.json();
 
-            // Update local state with the evolved Eevee
             setEevees((prevEevees) =>
                 prevEevees.map((eevee) =>
                     eevee._id === updatedEevee._id ? updatedEevee : eevee
@@ -94,7 +95,7 @@ const EeveeList = (props) => {
                 <h3 className="eeveeName">Name: {eevee.name}</h3>
                 <h3 className="eeveeSpecies">Species: {eevee.species}</h3>
                 <h2 className="eeveeLevel">Level: {eevee.level}</h2>
-                {/*Thank you ChatGPT vv*/}
+                {/*ChatGPT helped me make the evolution button disappear after the evolution happens*/}
                 {eevee.evolvesInto && (
                     <button onClick={() => evolveEevee(eevee._id)}>Evolve</button>
                 )}

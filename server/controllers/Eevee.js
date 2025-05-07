@@ -79,6 +79,7 @@ const getEevees = async (req, res) => {
     }
 };
 
+//ChatGPT helped me simplify this method
 const evolveEevee = async (req, res) => {
     try {
         const eevee = await Eevee.findOne({
