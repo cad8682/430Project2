@@ -56,7 +56,7 @@ const EeveeList = (props) => {
     //ChatGPT helped make evolveEevee
     const evolveEevee = async (id) => {
         try {
-            const response = await fetch(`/evolveEevee/${id}`, {
+            const response = await fetch(`/api/evolveEevee/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
