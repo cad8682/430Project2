@@ -23,9 +23,9 @@ const EeveeForm = (props) => {
     return (
         <form id="eeveeForm"
             name="eeveeForm"
-            //onSubmit={(e) => handleEevee(e, OptimizationStages.triggerReload)}
             //When bug fixing I was told to switch to this by ChatGPT, my code works, I'm hesitant to change back
                 //even if I don't think this caused any issues
+            //onSubmit={(e) => handleEevee(e, OptimizationStages.triggerReload)}
             onSubmit={(e) => handleEevee(e, props.triggerReload)}
             action="/maker"
             method="POST"

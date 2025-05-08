@@ -13,35 +13,27 @@ const makeEevee = async (req, res) => {
     let randomEvo = Math.floor(Math.random() * 8);
    switch (randomEvo) {
         case 0:
-            //Vaporeon
             req.body.evolvesInto = 'Vaporeon';
             break;
         case 1:
-            //Jolteon
             req.body.evolvesInto = 'Jolteon';
             break;
         case 2:
-            //Flareon
             req.body.evolvesInto = 'Flareon';
             break;
         case 3:
-            //Espeon
             req.body.evolvesInto = 'Espeon';
             break;
         case 4:
-            //Umbreon
             req.body.evolvesInto = 'Umbreon';
             break;
         case 5:
-            //Leafeon
             req.body.evolvesInto = 'Leafeon';
             break;
         case 6:
-            //Glaceon
             req.body.evolvesInto = 'Glaceon';
             break;
         case 7:
-            //Sylveon
             req.body.evolvesInto = 'Sylveon';
             break;
    }
@@ -63,7 +55,7 @@ const makeEevee = async (req, res) => {
         if (err.code === 11000) {
             return res.status(400).json({ error: 'That Eevee already exists!' });
         }
-        return res.status(500).json({ error: 'An error occured making Eevee! '});
+        return res.status(500).json({ error: 'An error occured adding Eevee to your party! '});
     }
 }
 
