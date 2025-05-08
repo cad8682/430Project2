@@ -15,6 +15,8 @@ const router = (app) => {
     app.get('/maker', mid.requiresLogin, controllers.Eevee.makerPage);
     app.post('/maker', mid.requiresLogin, controllers.Eevee.makeEevee);
 
+    //When I didn't have /api/ here, my project failed, not sure if it's actually needed now that the other bugs are gone
+    //But I'm not keen on finding out the hard way
     app.put('/api/evolveEevee/:id', mid.requiresLogin, controllers.Eevee.evolveEevee);
 
     app.get('/', mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
